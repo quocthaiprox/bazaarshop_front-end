@@ -7,8 +7,8 @@ import { toast } from "react-toastify";
 const LoginSeller = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [usernameInput, setUsernameInput] = useState("ngoquocthaidev");
-  const [passwordInput, setPasswordInput] = useState("quocthai2003");
+  const [usernameInput, setUsernameInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
 
   const handleSellerSignIn = async () => {
     try {
