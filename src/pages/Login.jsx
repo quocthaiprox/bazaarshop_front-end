@@ -5,7 +5,7 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { facebookLogo, googleLogo, logoDark } from "../assets";
+import { googleLogo, logoDark } from "../assets";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../redux/bazarSlice";
