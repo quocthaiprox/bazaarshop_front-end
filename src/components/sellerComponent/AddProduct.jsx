@@ -29,6 +29,10 @@ const AddProduct = () => {
 
   const handleSubmit = () => {
     let isValid = true;
+    let numberPrice = Number(price)
+    let numberSale = Number(sale)
+    let numberQuantity = Number(quantity)
+    let numberRating = Number(rating)
     if (!title.trim()) {
       setTitleError("Please enter your product title");
       isValid = false;
@@ -36,22 +40,22 @@ const AddProduct = () => {
       setTitleError("");
     }
 
-    if (!(typeof price === "number") || isNaN(price) || price <= 0) {
+    if (typeof numberPrice !== "number" || isNaN(numberPrice) || numberPrice <= 0) {
       setPriceError("Field Price must be a number and greater than 0");
       isValid = false;
     } else {
       setPriceError("");
     }
-    console.log(priceError);
 
-    if (!(typeof sale === "number") || isNaN(sale) || sale < 0) {
+    if (typeof numberSale !== "number" || isNaN(numberSale) || numberSale < 0) {
       setSaleError("Field Sale must be a number");
       isValid = false;
     } else {
       setSaleError("");
     }
     if (
-      (!category.trim() || !category === "women") ||
+      !category.trim() ||
+      !category === "women" ||
       !category === "men" ||
       !category === "kid" ||
       !category === "other"
@@ -68,7 +72,7 @@ const AddProduct = () => {
     } else {
       setImageError("");
     }
-    if (!(typeof quantity === "number") || isNaN(quantity) || quantity <= 0) {
+    if (typeof numberQuantity !== "number" || isNaN(numberQuantity) || numberQuantity <= 0) {
       setQuantityError("Field Quantity must be a number and greater than 0");
       isValid = false;
     } else {
@@ -76,17 +80,16 @@ const AddProduct = () => {
     }
 
     if (
-      !(typeof rating === "number") ||
-      isNaN(rating) ||
-      rating <= 0 ||
-      rating > 5
+      typeof numberRating !== "number" ||
+      isNaN(numberRating) ||
+      numberRating <= 0 ||
+      numberRating > 5
     ) {
       setRatingError("Field Rating must be a number between 1 and 5");
       isValid = false;
     } else {
       setRatingError("");
     }
-
     if (isValid) {
       const newProduct = {
         title,
