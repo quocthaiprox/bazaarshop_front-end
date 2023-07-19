@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { MdOutlineStar } from "react-icons/md";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { addToCart } from "../redux/bazarSlice";
+import { HiArrowNarrowLeft } from "react-icons/hi";
 const ProductDetails = () => {
   const dispatch = useDispatch();
   const [details, setDetails] = useState({});
@@ -15,11 +16,11 @@ const ProductDetails = () => {
   }, []);
   return (
     <div>
-      <div className="max-w-screen-xl mx-auto my-10 flex gap-10">
+      <div className="max-w-screen-xl mx-auto my-10 flex flex-col md:flex-row md:p-4 p-4 lg:p-2 gap-10 ">
         {/* img */}
-        <div className=" w-2/5 relative">
+        <div className=" w-full lg:w-2/5  relative">
           <img
-            className="w-full h-[540px] rounded-sm object-cover"
+            className="w-full lg:h-[540px]  rounded-sm object-cover"
             src={details.image}
             alt="productImg"
           />
@@ -33,7 +34,7 @@ const ProductDetails = () => {
         </div>
         {/* end img */}
 
-        <div className=" w-3/5 flex flex-col justify-center gap-12">
+        <div className=" w-full lg:w-3/5 flex flex-col justify-center p-4 lg:p-0 gap-12">
           <div>
             <h2 className=" text-4xl font-semibold">{details.title}</h2>
             <div className="flex items-center gap-4 mt-3">
@@ -56,9 +57,7 @@ const ProductDetails = () => {
             </div>
             <p className="text-xs text-gray-500">(1 Customer review)</p>
           </div>
-          <p className=" text-base text-gray-500 -mt-3">
-            {details.description}
-          </p>
+          <p className=" text-base text-gray-500 mt-3">{details.description}</p>
           <div className="flex gap-4">
             <div className="w-52 flex items-center justify-between text-gray-500 gap-4 border p-3">
               <p className=" text-sm">Quantity</p>
@@ -102,6 +101,14 @@ const ProductDetails = () => {
             Category:{" "}
             <span className="font-medium capitalize">{details.category}</span>
           </p>
+          <Link to="/">
+            <button className="flex items-center justify-center gap-2 text-gray-400 hover:text-black duration-300">
+              <span>
+                <HiArrowNarrowLeft />
+              </span>
+              go back shopping
+            </button>
+          </Link>
         </div>
       </div>
     </div>

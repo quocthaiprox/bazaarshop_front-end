@@ -207,6 +207,7 @@ const Login = () => {
                   </span>
                 </div>
               )}
+
               <button
                 onClick={() => handleSubmit()}
                 className="flex items-center justify-center gap-x-2 rounded-md border border-slate-600 bg-black py-3 px-4 text-slate-100 transition hover:bg-slate-700 active:bg-white active:text-slate-700"
@@ -227,6 +228,31 @@ const Login = () => {
                 </svg>
                 Sign in with Username
               </button>
+              {!userInfo && (
+                <button
+                  onClick={() => {
+                    navigate("/register");
+                  }}
+                  className="flex items-center justify-center gap-x-2 rounded-md bg-blue-600 py-3 px-4 text-slate-100 transition hover:bg-blue-800 active:bg-white active:text-slate-700"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z"
+                    />
+                  </svg>
+                  i don't have account, register now
+                </button>
+              )}
+
               {userInfo && (
                 <button
                   onClick={() => setIsConfirmSignOutOverlay(true)}

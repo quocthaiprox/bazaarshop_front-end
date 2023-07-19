@@ -4,7 +4,7 @@ const BlogDetail = () => {
   const navigate = useNavigate();
   const [detailBlogs, setDetailBlogs] = useState({});
   const location = useLocation();
-  const userName = location.state.blog.authorId.username
+  const userName = location.state.blog.authorId.username;
   useEffect(() => {
     setDetailBlogs(location.state.blog);
   }, [detailBlogs]);
@@ -16,14 +16,12 @@ const BlogDetail = () => {
   });
   return (
     <div className="w-full mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col gap-8 md:flex-row">
-        <div className=" w-full md:w-1/2">
+      <div className="flex flex-col gap-8 md:flex-col lg:flex-row">
+        <div className=" w-full md:w-full lg:w1/2">
           <div className="w-full rounded overflow-hidden shadow-lg my-4">
             <div className="px-6 py-4">
               <div className="font-bold text-xl mb-2">{detailBlogs.title}</div>
-              <p className="text-gray-700 text-base">
-                {detailBlogs.content}
-              </p>
+              <p className="text-gray-700 text-base">{detailBlogs.content}</p>
             </div>
             <div className="px-6 py-4">
               <div className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
@@ -35,30 +33,30 @@ const BlogDetail = () => {
                   {userName}
                 </span>
               </div>
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
+              <span className="inline-block mt-2 bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700">
                 {formattedDate}
               </span>
             </div>
           </div>
-          <div className="px-6 py-4">
-            <button
-              onClick={() => {
-                navigate("/blog");
-              }}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Read Other Blog
-            </button>
-          </div>
         </div>
 
-        <div className="md:w-1/2">
+        <div className="md:w-full">
           <img
-            className="w-full h-auto rounded object-cover"
+            className="w-full md:w-full h-auto rounded object-cover"
             src={detailBlogs.image}
             alt={detailBlogs.title}
           />
         </div>
+      </div>
+      <div className="px-6 py-4">
+        <button
+          onClick={() => {
+            navigate("/blog");
+          }}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Read Other Blog
+        </button>
       </div>
     </div>
   );

@@ -153,7 +153,7 @@ const Register = () => {
             </button>
             <button
               onClick={() => navigate("/login")}
-              className="flex items-center justify-center gap-x-2 rounded-md  bg-blue-600 py-3 px-4 text-slate-100 transition hover:bg-slate-700 active:bg-white active:text-slate-700"
+              className="flex items-center justify-center gap-x-2 rounded-md  bg-blue-600 py-3 px-4 text-slate-100 transition hover:bg-blue-800 active:bg-white active:text-slate-700"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
