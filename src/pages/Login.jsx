@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import {
-  FacebookAuthProvider,
   GoogleAuthProvider,
   getAuth,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import FacebookLogin from "react-facebook-login";
 import { facebookLogo, googleLogo, logoDark } from "../assets";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,7 +27,6 @@ const Login = () => {
 
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
-  const facebookProvider = new FacebookAuthProvider();
 
   const userInfo = useSelector((state) => state.bazar.userInfo);
 
@@ -50,31 +47,6 @@ const Login = () => {
           })
         );
         toast.success("Login with Google successfully");
-        setTimeout(() => {
-          navigate("/");
-        }, 1500);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  //HANDLE FACEBOOK LOGIN
-  const handleFacebookLogin = (e) => {
-    signInWithPopup(auth, facebookProvider)
-      .then((result) => {
-        const facebookUser = result.user;
-        console.log(facebookUser);
-        dispatch(
-          addUser({
-            _id: facebookUser.uid,
-            name: facebookUser.displayName,
-            email: facebookUser.email,
-            image: facebookUser.photoURL,
-            isFacebookLogin: true,
-          })
-        );
-        toast.success("Login with Facebook successfully");
         setTimeout(() => {
           navigate("/");
         }, 1500);
@@ -180,18 +152,13 @@ const Login = () => {
           />
           <div className="text-center">
             <h1 className="text-xl font-bodyFont font-extrabold">
-              {userInfo ? `You have logged in as ${userInfo.name}` : "Log in to continue shopping"}
+              {userInfo
+                ? `You have logged in as ${userInfo.name}`
+                : "Log in to continue shopping"}
             </h1>
           </div>
           <div className=" md:p-5 lg:p-6 p-4">
             <div className="grid gap-y-3">
-              <button
-                onClick={handleFacebookLogin}
-                className="flex items-center justify-center gap-x-2  text-slate-700 rounded-md border border-slate-300 bg-white py-3 px-4 text-slate-300 transition hover:text-purple-400 hover:border-slate-400 hover:text-slate-900 hover:shadow transition"
-              >
-                <img className=" w-6 h-6" src={facebookLogo} alt="" />
-                Sign in with Facebook
-              </button>
               <button
                 onClick={handleGoogleLogin}
                 className="flex items-center justify-center gap-x-2  text-slate-700 rounded-md border border-slate-300 bg-white py-3 px-4 text-slate-300 transition hover:text-purple-400 hover:border-slate-400 hover:text-slate-900 hover:shadow transition"
@@ -328,8 +295,8 @@ const Login = () => {
                   <div className="flex justify-end">
                     <button
                       onClick={() => {
-                        handleSignOut()
-                        setIsConfirmSignOutOverlay(false)
+                        handleSignOut();
+                        setIsConfirmSignOutOverlay(false);
                       }}
                       type="button"
                       className="inline-flex justify-center px-4 py-2 text-sm font-medium text-red-600 border border-transparent rounded-md hover:bg-red-500 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-500 sm:text-sm"
