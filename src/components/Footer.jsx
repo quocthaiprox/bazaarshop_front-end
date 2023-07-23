@@ -11,7 +11,9 @@ import {
   FaYoutube,
   FaHome,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 const Footer = () => {
+  const navigate = useNavigate()
   return (
     <div className=" bg-black text-[#949494] py-20 font-titleFont ">
       <div className=" max-w-screen-xl mx-auto grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
@@ -38,36 +40,36 @@ const Footer = () => {
           </h2>
           <div className="text-base w-fit flex flex-col gap-2 pl-5 mx-0 md:mx-auto">
             <p>Go Vap Districs, HCMC</p>
-            <p>Phone: 0838393408</p>
-            <p>e-mail: quocthaipro22@gmail.com</p>
+            <p>Phone: 0876763409</p>
+            <p>e-mail: ngoquocthai.dev@gmail.com</p>
           </div>
         </div>
         {/* Locate Us end */}
         {/* Profile start */}
         <div className="pl-5">
-          <h2 className="text-2xl font-semibold text-white mb-4 text-center ">
+          <h2  className="text-2xl font-semibold text-white mb-4 text-center ">
             Profile
           </h2>
           <div className="flex flex-col gap-2 text-base w-fit md:mx-auto mx-0">
-            <p className="flex items-center gap-3 hover:text-white duration-300 cursor-pointer">
+            <p onClick={() => navigate("/login")} className="flex items-center gap-3 hover:text-white duration-300 cursor-pointer">
               <span className="text-lg">
                 <BsPersonFill />
               </span>
               my account
             </p>
-            <p className="flex items-center gap-3 hover:text-white duration-300 cursor-pointer">
+            <p onClick={() => navigate("/checkout")} className="flex items-center gap-3 hover:text-white duration-300 cursor-pointer">
               <span className="text-lg">
                 <BsPaypal />
               </span>
               checkout
             </p>
-            <p className="flex items-center gap-3 hover:text-white duration-300 cursor-pointer">
+            <p onClick={() => navigate("/cart")}  className="flex items-center gap-3 hover:text-white duration-300 cursor-pointer">
               <span className="text-lg">
                 <FaHome />
               </span>
               order tracking
             </p>
-            <p className="flex items-center gap-3 hover:text-white duration-300 cursor-pointer">
+            <p onClick={() => navigate("/contact")} className="flex items-center gap-3 hover:text-white duration-300 cursor-pointer">
               <span className="text-lg">
                 <MdLocationOn />
               </span>

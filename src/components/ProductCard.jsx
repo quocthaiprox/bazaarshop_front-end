@@ -60,7 +60,7 @@ const ProductCard = ({ product }) => {
                     _id: product._id,
                     title: product.title,
                     image: product.image,
-                    price: product.price,
+                    price: (product.price / 100) * (100 - product.sale),
                     quantity: 1,
                     description: product.description,
                   })

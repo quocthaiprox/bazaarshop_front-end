@@ -1,12 +1,13 @@
 import { Pagination } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import EditProductOverlay from "./EditProductOverlay";
 import EditOrderOverlay from "./EditOrderOverlay";
 import { deleteOrderData, orderData } from "../../api/Api";
 import { useNavigate } from "react-router-dom";
-import ProductCard from './../ProductCard';
+import Loading from "../Loading";
 
 const ManagementOrders = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   const [isConfirmDeleteOverlayActive, setIsConFirmDeleteOverlayActive] =
     useState(false);
   const [isConfirmEditOverlayActive, setIsConFirmEditOverlayActive] =
@@ -22,6 +23,7 @@ const ManagementOrders = () => {
     const data = orderData(currentPage);
     data
       .then((res) => {
+        setIsLoading(false)
         setOrder(res.data.orders);
         setTotalPages(res.data.pagination.total);
       })
@@ -97,7 +99,10 @@ const ManagementOrders = () => {
                   <td className="px-4 py-3">
                     {item.products.map((product, index) => {
                       return (
-                        <div key={index} className=" flex flex-row justify-start float-center pb-2 gap-4">
+                        <div
+                          key={index}
+                          className=" flex flex-row justify-start float-center pb-2 gap-4"
+                        >
                           <span className="text-left w-[120px]">
                             {index + 1}. {product.title}
                           </span>
@@ -243,6 +248,9 @@ const ManagementOrders = () => {
           setIsConFirmEditOverlayActive={setIsConFirmEditOverlayActive}
         />
       )}
+      {
+        isLoading && <Loading/>
+      }
     </>
   );
 };

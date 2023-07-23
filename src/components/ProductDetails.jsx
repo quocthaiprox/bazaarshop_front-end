@@ -86,7 +86,7 @@ const ProductDetails = () => {
                     _id: details._id,
                     title: details.title,
                     image: details.image,
-                    price: details.price,
+                    price: (details.price / 100) * (100 - details.sale),
                     quantity: baseQty,
                     description: details.description,
                   })

@@ -3,9 +3,11 @@ import BlogItem from "../components/BlogItem";
 import CreateBlogForm from "../components/CreateBlogForm";
 import { Pagination } from "@mui/material";
 import { blogsData } from "../api/Api";
+import Loading from "../components/Loading";
 
 const Blog = () => {
   const [blogs, SetBlogs] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -13,6 +15,7 @@ const Blog = () => {
   useEffect(() => {
     const data = blogsData(currentPage);
     data.then((res) => {
+      setIsLoading(false);
       SetBlogs(res.data.blogs);
       setTotalPages(res.data.pagination.total);
     });
@@ -53,6 +56,9 @@ const Blog = () => {
         </div>
       </div>
       <CreateBlogForm />
+      {
+        isLoading && <Loading/>
+      }
     </>
   );
 };
