@@ -33,7 +33,7 @@ export const Home = () => {
           }}
         />
       </div>
-      {!isLoading && (
+      {isLoading && (
         <div>
           <div
             class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50"
