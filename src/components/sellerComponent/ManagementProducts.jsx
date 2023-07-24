@@ -67,6 +67,7 @@ const ManagementProducts = () => {
                   "
               >
                 <th className="px-4 py-3 ">Product Name</th>
+                <th className="px-4 py-3 ">Image</th>
                 <th className="px-4 py-3">Category</th>
                 <th className="px-4 py-3">Price</th>
                 <th className="px-4 py-3">Sale</th>
@@ -85,7 +86,10 @@ const ManagementProducts = () => {
             >
               {products.map((item) => (
                 <tr key={item._id} className=" text-sm text-center">
-                  <td className="px-4 py-3">{item.title}</td>
+                  <td className="px-4 py-3 w-1/4">{item.title}</td>
+                  <td className="px-4 py-3">
+                    <img className="w-16 mx-auto" src={item.image} alt="" />
+                  </td>
                   <td className="px-4 py-3">{item.category}</td>
                   <td className="px-4 py-3">{item.price}</td>
                   <td className="px-4 py-3">{item.sale}</td>

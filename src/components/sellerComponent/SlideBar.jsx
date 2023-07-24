@@ -9,7 +9,7 @@ const SlideBar = () => {
     <div>
       <div
         id="sidebar"
-        className=" font-titleFont hidden z-20 top-0 left-0  flex lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75"
+        className=" sticky top-0 font-titleFont hidden z-20 left-0  flex lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75"
         aria-label="Sidebar"
       >
         <div className="relative flex-1 flex flex-col min-h-0 border-r border-b border-gray-200 bg-white pt-0">
@@ -128,7 +128,7 @@ const SlideBar = () => {
                         navigate("/seller/addproduct");
                       }}
                     >
-                      <a className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                      <a className="text-base cursor-pointer text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
                         <span className="ml-5 flex-1 whitespace-nowrap">
                           Add Products
                         </span>
@@ -139,7 +139,7 @@ const SlideBar = () => {
                         navigate("/seller/managementproduct");
                       }}
                     >
-                      <span className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                      <span className="text-base cursor-pointer text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
                         <span className="ml-5 flex-1 whitespace-nowrap">
                           Management Products
                         </span>
