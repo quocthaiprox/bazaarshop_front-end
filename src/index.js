@@ -7,7 +7,6 @@ import { PersistGate } from "redux-persist/integration/react";
 import "./index.css";
 import App from "./App";
 import { app } from "./firebase.config";
-import axios from "axios";
 
 console.log(process.env.REACT_APP_BE_BASE_ADDRESS);
 

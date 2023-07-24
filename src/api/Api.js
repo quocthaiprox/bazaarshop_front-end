@@ -14,8 +14,11 @@ export async function productsData(page) {
 
 // BLOG
 
-export async function blogsData() {
-  const blogs = await axios.get("/blogs");
+export async function blogsData(page) {
+  const blogs = await axios.get(
+    // "https://fakestoreapiserver.reactbd.com/products"
+    `/blogs?_page=${page}`
+  );
   return blogs;
 }
 
