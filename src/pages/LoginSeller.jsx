@@ -46,16 +46,14 @@ const LoginSeller = () => {
               role: "customer",
             })
           );
-          setTimeout(() => {
-            navigate("/");
-          }, 1500);
+          toast.error("Login Failed. You are not administrator");
         }
       } else {
         toast.error("Login Failed.");
       }
     } catch (error) {
       console.log(error);
-      toast.error("Login Failed. You are not administrator");
+      toast.error("Login Failed. Incorrect username or password");
     }
   };
   return (
@@ -87,7 +85,7 @@ const LoginSeller = () => {
                       for="email"
                       class="absolute left-0 -top-3.5 text-gray-600 text-xs peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
                     >
-                      Email Address
+                      Username
                     </label>
                   </div>
                   <div class="relative">

@@ -106,7 +106,7 @@ const EditProductOverlay = ({
             });
             toast.success(`Update ${products.title} successfully`);
             setIsConFirmEditOverlayActive(false);
-            navigate("/seller");
+            navigate("/");
           })
           .catch((error) => {
             console.log(error);
