@@ -94,7 +94,7 @@ const Footer = () => {
         {/* sub start */}
         <div className="flex flex-col justify-center px-5">
           <iframe
-            className="w-fit lg:h-48"
+            className="lg:w-fit w-full h-40 lg:h-48"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.4898066315886!2d106.67602397459967!3d10.850301389302924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175284b7d679c69%3A0xfcccab941eaba179!2zNTQ5IE5ndXnhu4VuIE9hbmgsIFBoxrDhu51uZyA2LCBHw7IgVuG6pXAsIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1698666076851!5m2!1svi!2s"
             width="600"
             height="450"
