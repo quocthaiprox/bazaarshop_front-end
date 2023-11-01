@@ -56,9 +56,7 @@ const Blog = () => {
         </div>
       </div>
       <CreateBlogForm />
-      {
-        isLoading && <Loading/>
-      }
+      {isLoading && <Loading />}
     </>
   );
 };

@@ -25,7 +25,7 @@ const BlogItem = ({ blog }) => {
           handleDetails();
         }}
       >
-        <div className=" w-full h-96 cursor-pointer overflow-hidden">
+        <div className=" w-full h-96 cursor-pointer overflow-hidden"> 
           <img
             className="w-full h-full object-cover group-hover:scale-110 duration-500"
             src={blog.image}
