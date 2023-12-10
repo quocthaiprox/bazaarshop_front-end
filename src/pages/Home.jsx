@@ -11,7 +11,7 @@ export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const data = productsData(currentPage);
+    const data = productsData(currentPage, 12);
     data.then((res) => {
       setIsLoading(false);
       setProducts(res.data.products);

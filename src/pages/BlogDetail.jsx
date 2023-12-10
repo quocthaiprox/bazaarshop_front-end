@@ -6,7 +6,7 @@ const BlogDetail = () => {
   const location = useLocation();
   const userName = location.state?.blog.authorId.username;
   useEffect(() => {
-    setDetailBlogs(location.state.blog);
+      setDetailBlogs(location.state.blog);
   }, [detailBlogs]);
   const date = new Date(detailBlogs.createdAt);
   const formattedDate = date.toLocaleString("default", {

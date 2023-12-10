@@ -17,6 +17,7 @@ export const Header = () => {
     }
   };
 
+
   return (
     <div className="w-full h-20 bg-white border-b border-y-gray-800 font-titleFont sticky top-0 z-50">
       <div className="max-w-screen-xl h-full mx-auto flex items-center justify-between">
@@ -32,6 +33,26 @@ export const Header = () => {
                 Home
               </li>
             </Link>
+            <Link to="">
+              <li className="group/category relative text-base text-black font-bold  hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300 ">
+                Category
+                <div className="group-hover/category:flex hidden absolute no-underline text-black bg-white w-28">
+                  <ul className="">
+                    <li className="px-4 py-3 hover:text-orange-900 hover:underline">
+                      <Link href="#">Women</Link>
+                    </li>
+                    <li className="px-4 py-3 hover:text-orange-900 hover:underline">
+                      <Link href="#">Men</Link>
+                    </li>
+                    <li className="px-4 py-3 hover:text-orange-900 hover:underline">
+                      <Link href="#">Kid</Link>
+                    </li>
+                    {/* Add more items as needed */}
+                  </ul>
+                </div>
+              </li>
+            </Link>
+
             {/* <Link to="/seller"> */}
             <li
               className=" text-base text-black font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300 "
@@ -237,7 +258,7 @@ const SiteBar = ({ isOpen, setOpen }) => {
                   d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
                 />
               </svg>
-             { userInfo ? userInfo.name : "Login / Log out"}
+              {userInfo ? userInfo.name : "Login / Log out"}
             </li>
           </Link>
         </ul>

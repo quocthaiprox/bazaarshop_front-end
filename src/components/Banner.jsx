@@ -20,9 +20,9 @@ export const Banner = () => {
   }, []);
   const data = [
     "https://amazonproone.vercel.app/static/media/img2.bc1bdb910ead16c65197.jpg",
-    "https://amazonproone.vercel.app/static/media/img5.aa945e25375bfdee385f.jpg",
-    "https://amazonproone.vercel.app/static/media/img3.c80809bb40bee5c34372.jpg",
-    "https://amazonproone.vercel.app/static/media/img1.efb3d39101f7ef77d616.jpg",
+    "https://img3.thuthuatphanmem.vn/uploads/2019/10/14/banner-thoi-trang-cho-be_113855803.png",
+    "https://img3.thuthuatphanmem.vn/uploads/2019/10/14/anh-lookbook-thoi-trang_113854100.jpg",
+    "https://img3.thuthuatphanmem.vn/uploads/2019/10/14/banner-thoi-trang-dang-cap-hien-dai_113856116.png",
   ];
   return (
     <div className="w-full h-auto overflow-hidden">
