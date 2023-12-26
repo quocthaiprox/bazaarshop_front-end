@@ -10,6 +10,13 @@ const BillingDetail = ({ billingRef }) => {
   const [email, setEmail] = useState("");
   const [orderNotes, setOrderNotes] = useState("");
 
+  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOptionError, setSelectedOptionError] = useState("");
+
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
   const [firstnameError, setFirstnameError] = useState("");
   const [lastnameError, setLastnameError] = useState("");
   const [countryError, setCountryError] = useState("");
@@ -58,6 +65,13 @@ const BillingDetail = ({ billingRef }) => {
       setAddressError("");
     }
 
+    if (!selectedOption.trim()) {
+      setSelectedOptionError("Please choose the payment option");
+      isValid = false;
+    } else {
+      setSelectedOptionError("");
+    }
+
     if (!city.trim()) {
       setCityError("Please enter your address");
       isValid = false;
@@ -77,14 +91,15 @@ const BillingDetail = ({ billingRef }) => {
 
     if (isValid) {
       const formData = {
-        fullName: firstname + " " +  lastname,
+        fullName: firstname + " " + lastname,
         address,
         country,
         phone,
         address,
         city,
         email,
-        orderNote: orderNotes ? orderNotes : "No notes available"
+        orderNote: orderNotes ? orderNotes : "No notes available",
+        payment: selectedOption,
       };
       // console.log(formData);
       return formData;
@@ -131,7 +146,6 @@ const BillingDetail = ({ billingRef }) => {
                 />
               </div>
             </div>
-
             <div>
               <p className=" text-sm">
                 Country{" "}
@@ -145,7 +159,6 @@ const BillingDetail = ({ billingRef }) => {
               onChange={(e) => setCountry(e.target.value)}
               className="focus:border-purple-400 rounded-md border border-slate-300 bg-white py-3 px-4 text-slate-700 outline-none transition placeholder:text-slate-400"
             />
-
             <div>
               <p className=" text-sm">
                 Address{" "}
@@ -210,6 +223,72 @@ const BillingDetail = ({ billingRef }) => {
               className="focus:border-purple-400 rounded-md border border-slate-300 bg-white py-3 px-4 text-slate-700 outline-none transition placeholder:text-slate-400"
               placeholder="Note about your order, e.g, special noe for delivery"
             />
+            <div>
+              {/* pay ment */}
+              <p className=" text-sm">
+                Payment{" "}
+                <span className=" text-red-500">
+                  {selectedOptionError ? selectedOptionError : "*"}
+                </span>
+              </p>
+            </div>
+            {/* ---------------------------- */}
+            <div className="lg:flex justify-around center items-center py-4">
+              <div className="flex items-center mr-4">
+                <label className="flex items-center cursor-pointer">
+                  <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="cash"
+                    checked={selectedOption === "cash"}
+                    onChange={handleOptionChange}
+                    className="mr-2"
+                  />
+                  <span className="text-sm">Cash</span>
+                </label>
+                <img
+                  src="https://th.bing.com/th/id/OIP.ZvLGc7TZpymYaXzt-WWR9wHaG7?rs=1&pid=ImgDetMain"
+                  alt="Cash"
+                  className="w-16 ml-2"
+                />
+              </div>
+              <div className="flex items-center mr-4">
+                <label className="flex items-center cursor-pointer">
+                  <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="credit_card"
+                    checked={selectedOption === "credit_card"}
+                    onChange={handleOptionChange}
+                    className="mr-2"
+                  />
+                  <span className="text-sm">Credit card</span>
+                </label>
+                <img
+                  src="https://img.icons8.com/dotty/80/bank-card-dollar.png"
+                  alt="Credit Card"
+                  className="w-16 ml-2"
+                />
+              </div>
+              <div className="flex items-center">
+                <label className="flex items-center cursor-pointer">
+                  <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="vnpay"
+                    checked={selectedOption === "vnpay"}
+                    onChange={handleOptionChange}
+                    className="mr-2 p-3"
+                  />
+                  <span className="text-sm">VNPay</span>
+                </label>
+                <img
+                  src="https://th.bing.com/th/id/R.20572cf824e5e6071079152fca8fa2c0?rik=%2fF4x2a8k9kAX%2bA&pid=ImgRaw&r=0&sres=1&sresct=1"
+                  alt="VNPay"
+                  className="w-16 ml-2"
+                />
+              </div>
+            </div>
           </div>
           <div className="my-3 flex items-center px-3"></div>
         </div>

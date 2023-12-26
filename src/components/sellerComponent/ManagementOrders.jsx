@@ -23,7 +23,7 @@ const ManagementOrders = () => {
     const data = orderData(currentPage);
     data
       .then((res) => {
-        setIsLoading(false)
+        setIsLoading(false);
         setOrder(res.data.orders);
         setTotalPages(res.data.pagination.total);
       })
@@ -78,6 +78,7 @@ const ManagementOrders = () => {
                 <th className="px-4 py-3">Product</th>
                 <th className="px-4 py-3">totalPrice</th>
                 <th className="px-4 py-3">Status</th>
+                <th className="px-4 py-3">Payment</th>
                 <th className="px-4 py-3">Note</th>
                 <th className="px-4 py-3">Action</th>
               </tr>
@@ -115,6 +116,7 @@ const ManagementOrders = () => {
                   </td>
                   <td className="px-4 py-3 text-red-500">{item.totalPrice}</td>
                   <td className="px-4 py-3">{item.statusOrder}</td>
+                  <td className="px-4 py-3">{item.payment}</td>
                   <td className="px-4 py-3">{item.orderNote}</td>
                   <td className="px-4 py-3">
                     <div className="flex items-center justify-center space-x-2">
@@ -248,9 +250,7 @@ const ManagementOrders = () => {
           setIsConFirmEditOverlayActive={setIsConFirmEditOverlayActive}
         />
       )}
-      {
-        isLoading && <Loading/>
-      }
+      {isLoading && <Loading />}
     </>
   );
 };
