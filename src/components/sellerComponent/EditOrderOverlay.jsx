@@ -55,17 +55,25 @@ const EditProductOverlay = ({
                 <option disabled selected class="tw-text-gray-400">
                   Select status
                 </option>{" "}
-                <option value="pending" class="tw-text-orange-400">
+                <option value="processing" class="tw-text-orange-400">
                   {" "}
-                  Pending{" "}
+                  processing{" "}
                 </option>{" "}
-                <option value="processing" class="tw-text-amber-400">
+                <option value="shipping" class="tw-text-amber-400">
                   {" "}
-                  Processing{" "}
+                  shipping{" "}
                 </option>{" "}
-                <option value="processed" class="tw-text-green-400">
+                <option value="shipped" class="tw-text-green-400">
                   {" "}
-                  Processed{" "}
+                  shipped{" "}
+                </option>{" "}
+                <option value="success" class="tw-text-green-400">
+                  {" "}
+                  success{" "}
+                </option>{" "}
+                <option value="failed" class="tw-text-green-400">
+                  {" "}
+                  failed{" "}
                 </option>{" "}
               </select>
             </div>
